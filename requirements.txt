@@ -9,3 +9,4 @@ docutils==0.10
 gunicorn==0.17.4
 pillow==2.0.0
 wsgiref==0.1.2
+psycopg2==2.5.1
