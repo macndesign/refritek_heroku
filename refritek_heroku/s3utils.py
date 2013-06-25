@@ -7,7 +7,6 @@ class S3StaticStorage(S3BotoStorage):
     def __init__(self, *args, **kwargs):
         super(S3StaticStorage, self).__init__(
             bucket=settings.AWS_STORAGE_BUCKET_NAME,
-            custom_domain=settings.STATIC_URL,
             *args, **kwargs
         )
 
