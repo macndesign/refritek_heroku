@@ -1,0 +1,1 @@
+web: gunicorn refritek_heroku.wsgi
