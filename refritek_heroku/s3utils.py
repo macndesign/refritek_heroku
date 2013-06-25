@@ -1,5 +1,4 @@
 from storages.backends.s3boto import S3BotoStorage
-from django.conf import settings
 
 
 class S3StaticStorage(S3BotoStorage):
