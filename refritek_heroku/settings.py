@@ -6,7 +6,7 @@ import dj_database_url
 
 PROJECT_DIR = Path(__file__).parent
 
-DEBUG = bool(os.environ.get('DJANGO_DEBUG', False))
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
