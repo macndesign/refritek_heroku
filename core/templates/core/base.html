@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Refritek - {% block title %}{% endblock %}</title>
+    <title>{% if pagina.name %}{{ pagina.name }} - {% endif %}{% block title %}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="keywords" content="{% if pagina.keywords %}{{ pagina.keywords }}{% endif %}">
+    <meta name="description" content="{% if pagina.description %}{{ pagina.description }}{% endif %}">
+    <meta name="author" content="{% if pagina.author %}{{ pagina.author|safe }}{% endif %}">
 
     <!-- Google Web Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css">
@@ -48,7 +49,7 @@
     <div class="container">
         <div class="row">
             <div class="span12">
-                <span class="muted">&copy; 2013 Refritek</span>
+                <span class="muted">{% if pagina.footer_content %}{{ pagina.footer_content }}{% endif %}</span>
             </div>
         </div>
     </div>
