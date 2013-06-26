@@ -26,6 +26,10 @@
                             <a href="{{ produto.imagem.url }}" class="thumbnail" title="{{ produto.nome }}">
                                 <img src="{{ produto.thumb.url }}" alt="{{ produto.nome }}" title="{{ produto.nome }}">
                             </a>
+                            <div class="caption">
+                                <h3>{{ produto.nome }}</h3>
+                                <p>{{ produto.desc }}</p>
+                            </div>
                         </li>
                     {% empty %}
                         <li>Não há produtos cadastrados para essa empresa</li>

@@ -133,6 +133,7 @@ class ProdutoManager(models.Manager):
 class Produto(models.Model):
     ordenacao = models.PositiveSmallIntegerField(u'Ordenação', default=0)
     nome = models.CharField(max_length=120)
+    desc = models.TextField(u'Descrição', blank=True)
     thumb = models.ImageField(upload_to='produtos')
     imagem = models.ImageField(upload_to='produtos')
     empresa = models.ForeignKey('Empresa')
