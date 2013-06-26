@@ -7,13 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
 {% endblock %}
 
-{% block title %}Sobre a empresa{% endblock %}
-
-{% block menu %}
-    <li><a href="{% url 'core:home' %}">Início</a></li>
-    <li class="active"><a href="{% url 'core:sobre' %}">Empresa</a></li>
-    <li><a href="#">Contato</a></li>
-{% endblock %}
+{% block title %}{{ object.nome }}{% endblock %}
 
 {% block content %}
 

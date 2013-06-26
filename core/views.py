@@ -33,3 +33,12 @@ class EmpresaDetailView(DetailView):
         ctx = super(EmpresaDetailView, self).get_context_data(**kwargs)
         ctx['pagina'] = get_object_or_404(Pagina, pk=1)
         return ctx
+
+
+class ContatoTemplateView(TemplateView):
+    template_name = 'core/contato.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super(ContatoTemplateView, self).get_context_data(**kwargs)
+        ctx['pagina'] = get_object_or_404(Pagina, pk=1)
+        return ctx

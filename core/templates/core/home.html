@@ -1,5 +1,11 @@
 {% extends "core/base.html" %}
-{% block title %}Home{% endblock %}
+{% block title %}Início{% endblock %}
+
+{% block menu %}
+    <li class="active"><a href="{% url 'core:home' %}">Início</a></li>
+    <li><a href="{% url 'core:sobre' %}">A empresa</a></li>
+    <li><a href="#">Contato</a></li>
+{% endblock %}
 
 {% block content %}
 
