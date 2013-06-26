@@ -1,7 +1,7 @@
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.shortcuts import get_object_or_404
-from .models import Empresa, Pagina, Slider, Sobre
+from .models import Empresa, Pagina, Slider, Sobre, Contato
 
 
 class HomeTemplateView(TemplateView):
@@ -40,5 +40,6 @@ class ContatoTemplateView(TemplateView):
 
     def get_context_data(self, **kwargs):
         ctx = super(ContatoTemplateView, self).get_context_data(**kwargs)
+        ctx['contato'] = get_object_or_404(Contato, pk=1)
         ctx['pagina'] = get_object_or_404(Pagina, pk=1)
         return ctx
