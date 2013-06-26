@@ -1,5 +1,6 @@
 from django.views.generic.base import TemplateView
-from .models import Empresa, Produto, Slider
+from django.shortcuts import get_object_or_404
+from .models import Empresa, Pagina, Slider
 
 
 class HomeTemplateView(TemplateView):
@@ -9,4 +10,5 @@ class HomeTemplateView(TemplateView):
         ctx = super(HomeTemplateView, self).get_context_data(**kwargs)
         ctx['sliders'] = Slider.objects.ativos()
         ctx['empresas'] = Empresa.objects.ativos()
+        ctx['pagina'] = get_object_or_404(Pagina, pk=1)
         return ctx
