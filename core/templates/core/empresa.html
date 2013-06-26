@@ -23,15 +23,9 @@
                 <ul class="thumbnails">
                     {% for produto in object.produto_set.all %}
                         <li class="span2">
-                            <div class="thumbnail">
-                                <a href="{{ produto.imagem.url }}" class="thumbnail" title="{{ produto.nome }}">
-                                    <img src="{{ produto.thumb.url }}" alt="{{ produto.nome }}" title="{{ produto.nome }}">
-                                </a>
-                                <div class="caption">
-                                    <h3>{{ produto.nome }}</h3>
-                                    {% if produto.desc %}<p>{{ produto.desc }}</p>{% endif %}
-                                </div>
-                            </div>
+                            <a href="{{ produto.imagem.url }}" class="thumbnail" title="{{ produto.nome }}{% if produto.desc %}: {{ produto.desc }}{% endif %}">
+                                <img src="{{ produto.thumb.url }}" alt="{{ produto.nome }}" title="{{ produto.nome }}">
+                            </a>
                         </li>
                     {% empty %}
                         <li>Não há produtos cadastrados para essa empresa</li>
