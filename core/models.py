@@ -105,6 +105,9 @@ class Empresa(models.Model):
         editable=True
     )
 
+    def get_absolute_url(self):
+        return '/empresa/%s/' % self.pk
+
     objects = EmpresaManager()
 
     class Meta:

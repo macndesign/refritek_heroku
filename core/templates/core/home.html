@@ -56,7 +56,7 @@
                 <ul class="thumbnails">
                     {% for empresa in empresas %}
                     <li class="span2">
-                        <a href="#" class="thumbnail">
+                        <a href="{{ empresa.get_absolute_url }}" class="thumbnail">
                             <img src="{{ empresa.imagem.url }}">
                         </a>
                     </li>
