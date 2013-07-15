@@ -43,3 +43,7 @@ class ContatoTemplateView(TemplateView):
         ctx['contato'] = get_object_or_404(Contato, pk=1)
         ctx['pagina'] = get_object_or_404(Pagina, pk=1)
         return ctx
+
+
+class ForaDoArTemplateView(TemplateView):
+    template_name = 'core/fora-do-ar.html'

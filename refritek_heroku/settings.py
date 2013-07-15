@@ -9,6 +9,9 @@ PROJECT_DIR = Path(__file__).parent
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 TEMPLATE_DEBUG = DEBUG
 
+# Setting para retirar o site do ar
+FORA_DO_AR = bool(os.environ.get('FORA_DO_AR', False))
+
 ADMINS = (
     (u'Mário Chaves', 'macndesign@gmail.com'),
 )
