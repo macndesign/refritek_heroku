@@ -189,6 +189,9 @@ class Sobre(models.Model):
 
     objects = SobreManager()
 
+    class Meta:
+        verbose_name_plural = 'Textos sobre a empresa'
+
     def __unicode__(self):
         return self.desc
 
