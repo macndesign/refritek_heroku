@@ -159,6 +159,50 @@ class Produto(models.Model):
         return self.nome
 
 
+class CartaoQuerySet(models.query.QuerySet):
+    def ativos(self):
+        return self.filter(ativo=True)
+
+
+class CartaoManager(models.Manager):
+    def get_query_set(self):
+        return CartaoQuerySet(self.model, using=self._db)
+
+    def ativos(self):
+        return self.get_query_set().ativos()
+
+
+class Cartao(models.Model):
+    ordenacao = models.PositiveSmallIntegerField(u'Cartão', default=0)
+    nome = models.CharField(max_length=120)
+    imagem = models.ImageField(upload_to='cartao')
+    ativo = models.BooleanField(default=False)
+
+    data_criacao = models.DateTimeField(
+        verbose_name=u'Data de criação',
+        auto_now_add=True,
+        editable=True
+    )
+    data_atualizacao = models.DateTimeField(
+        verbose_name=u'Data de atualização',
+        auto_now=True,
+        editable=True
+    )
+
+    def get_absolute_url(self):
+        return '/cartao/%s/' % self.pk
+
+    objects = CartaoManager()
+
+    class Meta:
+        ordering = ['ordenacao', 'nome']
+        verbose_name = u'Cartão'
+        verbose_name_plural = u'Cartões'
+
+    def __unicode__(self):
+        return self.nome
+
+
 class SobreQuerySet(models.query.QuerySet):
     def ativos(self):
         return self.filter(ativo=True)
