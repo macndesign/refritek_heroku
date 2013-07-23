@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+
+{% block title %}Produtos{% endblock %}
+
+{% block content %}
+
+<div class="main">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+
+                <div class="page-header">
+                    <h1>Produtos <small>Clique nna empresa para ver os produtos</small></h1>
+                </div>
+
+                <ul class="thumbnails">
+                    {% for empresa in empresas %}
+                    <li class="span2">
+                        <a href="{{ empresa.get_absolute_url }}" class="thumbnail">
+                            <img src="{{ empresa.imagem.url }}">
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

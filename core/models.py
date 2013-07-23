@@ -121,6 +121,9 @@ class ProdutoQuerySet(models.query.QuerySet):
     def ativos(self):
         return self.filter(ativo=True)
 
+    def destaques(self):
+        return self.filter(destaque=True)
+
 
 class ProdutoManager(models.Manager):
     def get_query_set(self):
@@ -128,6 +131,9 @@ class ProdutoManager(models.Manager):
 
     def ativos(self):
         return self.get_query_set().ativos()
+
+    def destaques(self):
+        return self.get_query_set().destaques()
 
 
 class Produto(models.Model):
@@ -137,6 +143,7 @@ class Produto(models.Model):
     thumb = models.ImageField(upload_to='produtos')
     imagem = models.ImageField(upload_to='produtos')
     empresa = models.ForeignKey('Empresa')
+    destaque = models.BooleanField(default=False)
     ativo = models.BooleanField(default=False)
 
     data_criacao = models.DateTimeField(

@@ -60,12 +60,14 @@
                 {% endif %}
 
                 <ul class="thumbnails">
-                    {% for empresa in empresas %}
-                    <li class="span2">
-                        <a href="{{ empresa.get_absolute_url }}" class="thumbnail">
-                            <img src="{{ empresa.imagem.url }}">
-                        </a>
-                    </li>
+                    {% for produto in produtos %}
+                        <li class="span3">
+                            <a href="#" class="thumbnail">
+                                <img src="{{ produto.imagem.url }}">
+                            </a>
+                        </li>
+                    {% empty %}
+                        <li>Não há produtos em destaque</li>
                     {% endfor %}
                 </ul>
             </div>

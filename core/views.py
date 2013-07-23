@@ -1,7 +1,8 @@
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
 from django.shortcuts import get_object_or_404
-from .models import Empresa, Pagina, Slider, Sobre, Contato
+from .models import Empresa, Pagina, Slider, Sobre, Contato, Cartao, Produto
 
 
 class HomeTemplateView(TemplateView):
@@ -10,9 +11,15 @@ class HomeTemplateView(TemplateView):
     def get_context_data(self, **kwargs):
         ctx = super(HomeTemplateView, self).get_context_data(**kwargs)
         ctx['sliders'] = Slider.objects.ativos()
-        ctx['empresas'] = Empresa.objects.ativos()
+        ctx['empresas'] = Produto.objects.destaques()[:4]
+        ctx['cartoes'] = Cartao.objects.ativos()
         ctx['pagina'] = get_object_or_404(Pagina, pk=1)
         return ctx
+
+
+class ProdutoListView(ListView):
+    queryset = Empresa.objects.ativos()
+    context_object_name = 'empresas'
 
 
 class SobreTemplateView(TemplateView):
@@ -21,6 +28,7 @@ class SobreTemplateView(TemplateView):
     def get_context_data(self, **kwargs):
         ctx = super(SobreTemplateView, self).get_context_data(**kwargs)
         ctx['sobre'] = get_object_or_404(Sobre, pk=1)
+        ctx['cartoes'] = Cartao.objects.ativos()
         ctx['pagina'] = get_object_or_404(Pagina, pk=1)
         return ctx
 
@@ -31,6 +39,7 @@ class EmpresaDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         ctx = super(EmpresaDetailView, self).get_context_data(**kwargs)
+        ctx['cartoes'] = Cartao.objects.ativos()
         ctx['pagina'] = get_object_or_404(Pagina, pk=1)
         return ctx
 
@@ -41,6 +50,7 @@ class ContatoTemplateView(TemplateView):
     def get_context_data(self, **kwargs):
         ctx = super(ContatoTemplateView, self).get_context_data(**kwargs)
         ctx['contato'] = get_object_or_404(Contato, pk=1)
+        ctx['cartoes'] = Cartao.objects.ativos()
         ctx['pagina'] = get_object_or_404(Pagina, pk=1)
         return ctx
 
