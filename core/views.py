@@ -30,7 +30,7 @@ class EmpresaListView(ListView):
 
 
 class ProdutoDetailView(DetailView):
-    queryset = Produto
+    model = Produto
     template_name = 'core/produto.html'
 
     def get_context_data(self, **kwargs):
