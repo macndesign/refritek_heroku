@@ -22,10 +22,22 @@ class EmpresaListView(ListView):
     context_object_name = 'empresas'
     template_name = 'core/empresas.html'
 
+    def get_context_data(self, **kwargs):
+        ctx = super(EmpresaListView, self).get_context_data(**kwargs)
+        ctx['cartoes'] = Cartao.objects.ativos()
+        ctx['pagina'] = get_object_or_404(Pagina, pk=1)
+        return ctx
+
 
 class ProdutoDetailView(DetailView):
     queryset = Produto
     template_name = 'core/produto.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super(ProdutoDetailView, self).get_context_data(**kwargs)
+        ctx['cartoes'] = Cartao.objects.ativos()
+        ctx['pagina'] = get_object_or_404(Pagina, pk=1)
+        return ctx
 
 
 class SobreTemplateView(TemplateView):
