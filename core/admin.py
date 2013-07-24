@@ -5,8 +5,8 @@ from south.models import MigrationHistory
 
 
 class ProdutoAdmin(admin.ModelAdmin):
-    search_fields = ('nome', 'empresa')
-    list_display = ('nome', 'empresa', 'destaque', 'ativo')
+    search_fields = ['nome', 'empresa']
+    list_display = ['nome', 'empresa', 'destaque', 'ativo']
 
 admin.site.register(Produto, ProdutoAdmin)
 
