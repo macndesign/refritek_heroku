@@ -22,4 +22,7 @@ collectstatic:
 heroku:
 	@git push heroku master
 
+loadpagina: remote_migrate
+	@python manage.py loaddata core/fixtures/pagina_initial_data.json
+
 deploy: heroku remote_migrate collectstatic
