@@ -1,0 +1,23 @@
+[
+{
+    "pk": 1, 
+    "model": "core.pagina", 
+    "fields": {
+        "subtitulo_empresa": "selecione a marca para visualizar os produtos",
+        "titulo_destaque": "Destaque",
+        "titulo_empresa": "Empresas",
+        "titulo_contato": "Contato",
+        "subtitulo_contato": "entre em contato conosco",
+        "subtitulo_sobre": "sobre a Refritek",
+        "data_criacao": "2013-06-26T02:04:37.310Z",
+        "data_atualizacao": "2013-07-24T14:39:50.088Z",
+        "footer_content": "\u00a9 2013 Refritek\r\nAv. Duque de Caxias, 928, Centro, Fortaleza - CE - 60.035-000\r\nFone: (85) 0253-4238",
+        "subtitulo_destaque": "Produtos em destaque",
+        "name": "Refritek",
+        "keywords": "Refritek,Empresas,Produtos,Pre\u00e7os,Eletr\u00f4nicos",
+        "titulo_sobre": "Empresa",
+        "description": "Site da Refritek que cont\u00e9m muitas empresas e produtos",
+        "author": "M\u00e1rio Chaves <macndesign@gmail.com>"
+    }
+}
+]
