@@ -60,7 +60,7 @@
                 <ul class="thumbnails">
                     {% for produto in produtos %}
                         <li class="span3">
-                            <a href="#" class="thumbnail">
+                            <a href="{{ produto.get_absolute_url }}" class="thumbnail">
                                 <img src="{{ produto.imagem.url }}">
                             </a>
                         </li>

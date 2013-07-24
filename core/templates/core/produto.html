@@ -9,7 +9,7 @@
             <div class="span12">
 
                 <div class="page-header">
-                    <h1>{{ object.nome }} <small>Produto da empresa {{ object.empresa.nome }}</small></h1>
+                    <h1>{{ object.nome }} <small>Produto da empresa <a href="{{ object.empresa.get_absolute_url }}">{{ object.empresa.nome }}</a></small></h1>
                 </div>
 
                 <!-- descricao do produto -->
