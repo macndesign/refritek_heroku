@@ -1,5 +1,5 @@
 {% extends "core/base.html" %}
-{% block title %}Produtos{% endblock %}
+{% block title %}{{ object.nome }} produto da empresa {{ object.empresa.nome }}{% endblock %}
 
 {% block content %}
 
@@ -8,21 +8,20 @@
         <div class="row">
             <div class="span12">
 
-                {% if pagina.titulo_empresa and pagina.subtitulo_empresa %}
                 <div class="page-header">
-                    <h1>{{ pagina.titulo_empresa }} <small>{{ pagina.subtitulo_empresa }}</small></h1>
+                    <h1>{{ object.nome }} <small>Produto da empresa {{ object.empresa.nome }}</small></h1>
                 </div>
-                {% endif %}
 
-                <ul class="thumbnails">
-                    {% for empresa in empresas %}
-                    <li class="span2">
-                        <a href="{{ empresa.get_absolute_url }}" class="thumbnail">
-                            <img src="{{ empresa.imagem.url }}">
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
+                <!-- descricao do produto -->
+                <div class="row">
+                    <div class="span4">
+                        <img src="{{ object.imagem.url }}" title="{{ object.nome }}" alt="{{ object.nome }}">
+                    </div>
+                    <div class="span8">
+                        <h3>Descrição do produto</h3>
+                        {{ object.desc|linebreaks }}
+                    </div>
+                </div>
 
             </div>
         </div>

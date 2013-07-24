@@ -1,12 +1,4 @@
 {% extends "core/base.html" %}
-
-{% block extra_head %}
-    <!-- fancybox -->
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fancybox/source/jquery.fancybox.css?v=2.1.4" media="screen" />
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
-{% endblock %}
-
 {% block title %}{{ object.nome }}{% endblock %}
 
 {% block content %}
@@ -17,13 +9,13 @@
             <div class="span12">
 
                 <div class="page-header">
-                    <h1>{{ object.nome }} <small>Clique no produto para ampliar</small></h1>
+                    <h1>{{ object.nome }} <small>Clique no produto para mais detalhes</small></h1>
                 </div>
 
                 <ul class="thumbnails">
                     {% for produto in object.produto_set.all %}
                         <li class="span2">
-                            <a href="{{ produto.imagem.url }}" class="thumbnail" title="{{ produto.nome }}{% if produto.desc %}: {{ produto.desc }}{% endif %}">
+                            <a href="{{ produto.get_absolute_url }}" class="thumbnail">
                                 <img src="{{ produto.thumb.url }}" alt="{{ produto.nome }}" title="{{ produto.nome }}">
                             </a>
                         </li>
@@ -37,38 +29,4 @@
     </div>
 </div>
 
-{% endblock %}
-
-{% block scripts %}
-<!-- fancybox -->
-<script src="{{ STATIC_URL }}fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
-<!-- Add fancyBox main JS and CSS files -->
-<script type="text/javascript" src="{{ STATIC_URL }}fancybox/source/jquery.fancybox.js"></script>
-<!-- Add Button helper (this is optional) -->
-<script type="text/javascript" src="{{ STATIC_URL }}fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
-<!-- Add Thumbnail helper (this is optional) -->
-<script type="text/javascript" src="{{ STATIC_URL }}fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
-<!-- Add Media helper (this is optional) -->
-<script type="text/javascript" src="{{ STATIC_URL }}fancybox/source/helpers/jquery.fancybox-media.js"></script>
-
-<script>
-    // Set custom style, close if clicked, change title type and overlay color
-    $(".thumbnail").fancybox({
-        wrapCSS    : 'fancybox-custom',
-        closeClick : true,
-
-        openEffect : 'none',
-
-        helpers : {
-            title : {
-                type : 'inside'
-            },
-            overlay : {
-                css : {
-                    'background' : 'rgba(238,238,238,0.85)'
-                }
-            }
-        }
-    });
-</script>
 {% endblock %}
