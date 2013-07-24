@@ -46,8 +46,23 @@
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="span12">
-                <span class="muted">{% if pagina.footer_content %}{{ pagina.footer_content }}{% endif %}</span>
+            <div class="span8">
+                <div class="muted">
+                    {% if pagina.footer_content %}{{ pagina.footer_content|linebreaks }}{% endif %}
+                </div>
+            </div>
+            <div class="span4" style="text-align: right">
+                {% for cartao in cartoes %}
+                    <div style="border-bottom: solid 1px #ccc; padding-bottom: 3px; text-align: right">
+                        Aceitamos os cartões
+                    </div>
+                    <div style="text-align: right; padding-top: 3px">
+                        <img style="margin-left: 3px"
+                            src="{{ cartao.imagem.url }}" title="{{ cartao.nome }}" alt="{{ cartao.nome }}">
+                    </div>
+                {% empty %}
+                    Não aceitamos cartões.
+                {% endfor %}
             </div>
         </div>
     </div>
