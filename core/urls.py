@@ -1,15 +1,12 @@
-from django.conf import settings
 from django.conf.urls import patterns, url
-from django.conf.urls.static import static
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from .views import HomeTemplateView, SobreTemplateView, EmpresaDetailView, ContatoTemplateView, ProdutoListView
+from .views import (HomeTemplateView, SobreTemplateView, EmpresaDetailView, ContatoTemplateView, EmpresaListView,
+                    ProdutoDetailView)
 
 urlpatterns = patterns('',
     url(r'^$', HomeTemplateView.as_view(), name='home'),
     url(r'^sobre/$', SobreTemplateView.as_view(), name='sobre'),
+    url(r'^empresas/$', EmpresaListView.as_view(), name='empresas'),
     url(r'^empresa/(?P<pk>\d+)/$', EmpresaDetailView.as_view(), name='empresa'),
-    url(r'^produtos/$', ProdutoListView.as_view(), name='produtos'),
+    url(r'^produto/(?P<pk>\d+)/$', ProdutoDetailView.as_view(), name='produto'),
     url(r'^contato/$', ContatoTemplateView.as_view(), name='contato'),
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-urlpatterns += staticfiles_urlpatterns()
+)

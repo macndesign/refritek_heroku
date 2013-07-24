@@ -11,15 +11,21 @@ class HomeTemplateView(TemplateView):
     def get_context_data(self, **kwargs):
         ctx = super(HomeTemplateView, self).get_context_data(**kwargs)
         ctx['sliders'] = Slider.objects.ativos()
-        ctx['empresas'] = Produto.objects.destaques()[:4]
+        ctx['produtos'] = Produto.objects.destaques()[:4]
         ctx['cartoes'] = Cartao.objects.ativos()
         ctx['pagina'] = get_object_or_404(Pagina, pk=1)
         return ctx
 
 
-class ProdutoListView(ListView):
+class EmpresaListView(ListView):
     queryset = Empresa.objects.ativos()
     context_object_name = 'empresas'
+    template_name = 'core/empresas.html'
+
+
+class ProdutoDetailView(DetailView):
+    queryset = Produto
+    template_name = 'core/produto.html'
 
 
 class SobreTemplateView(TemplateView):
@@ -35,7 +41,7 @@ class SobreTemplateView(TemplateView):
 
 class EmpresaDetailView(DetailView):
     model = Empresa
-    template_name = 'core/empresa.html'
+    template_name = 'core/produtos.html'
 
     def get_context_data(self, **kwargs):
         ctx = super(EmpresaDetailView, self).get_context_data(**kwargs)

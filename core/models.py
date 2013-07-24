@@ -8,6 +8,8 @@ class Pagina(models.Model):
     keywords = models.TextField(u'Keywords metatag')
     description = models.TextField(u'Description metatag')
 
+    titulo_destaque = models.CharField(u'Título de destaques', max_length=120)
+    subtitulo_destaque = models.CharField(u'Sub-título de destaques', max_length=120)
     titulo_empresa = models.CharField(u'Título de empresas', max_length=120)
     subtitulo_empresa = models.CharField(u'Sub-título de empresas', max_length=120)
     titulo_contato = models.CharField(u'Título de contato', max_length=120)
@@ -156,6 +158,9 @@ class Produto(models.Model):
         auto_now=True,
         editable=True
     )
+
+    def get_absolute_url(self):
+        return '/produto/%s/' % self.pk
 
     objects = ProdutoManager()
 

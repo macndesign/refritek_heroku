@@ -1,0 +1,32 @@
+{% extends "core/base.html" %}
+{% block title %}Produtos{% endblock %}
+
+{% block content %}
+
+<div class="main">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+
+                {% if pagina.titulo_empresa and pagina.subtitulo_empresa %}
+                <div class="page-header">
+                    <h1>{{ pagina.titulo_empresa }} <small>{{ pagina.subtitulo_empresa }}</small></h1>
+                </div>
+                {% endif %}
+
+                <ul class="thumbnails">
+                    {% for empresa in empresas %}
+                    <li class="span2">
+                        <a href="{{ empresa.get_absolute_url }}" class="thumbnail">
+                            <img src="{{ empresa.imagem.url }}">
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
