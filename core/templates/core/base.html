@@ -52,17 +52,17 @@
                 </div>
             </div>
             <div class="span4" style="text-align: right">
-                {% for cartao in cartoes %}
-                    <div style="border-bottom: solid 1px #ccc; padding-bottom: 3px; text-align: right">
-                        Aceitamos os cartões
+                {% if cartoes %}
+                    <div style="border-bottom: padding-bottom: 3px; text-align: right">
+                        <strong>Aceitamos os cartões</strong>
                     </div>
                     <div style="text-align: right; padding-top: 3px">
+                        {% for cartao in cartoes %}
                         <img style="margin-left: 3px"
                             src="{{ cartao.imagem.url }}" title="{{ cartao.nome }}" alt="{{ cartao.nome }}">
+                        {% endfor %}
                     </div>
-                {% empty %}
-                    Não aceitamos cartões.
-                {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>
