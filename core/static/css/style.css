@@ -1,5 +1,6 @@
 body {
     font-family: "Ubuntu", sans-serif !important;
+    background: #fff url("../img/fabric_of_squares_gray.png");
 }
 
 .destaque-text p {
@@ -38,7 +39,7 @@ div.main {
 }
 
 footer.footer {
-    background: #f5f6f6; /* Old browsers */
+    background: #fafbfb;
     padding: 1em 0;
 }
 

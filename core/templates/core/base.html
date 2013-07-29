@@ -46,14 +46,19 @@
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="span8">
+            <div class="span1">
+                <a href="https://facebook.com/refritek" target="_blank">
+                    <img src="{{ STATIC_URL }}img/fb-icon.png" width="36" height="38" alt="Facebook" title="Refritek no Facebook">
+                </a>
+            </div>
+            <div class="span7">
                 <div class="muted">
                     {% if pagina.footer_content %}{{ pagina.footer_content|linebreaks }}{% endif %}
                 </div>
             </div>
             <div class="span4" style="text-align: right">
                 {% if cartoes %}
-                    <div style="border-bottom: padding-bottom: 3px; text-align: right">
+                    <div style="padding-bottom: 3px; text-align: right">
                         <strong>Aceitamos os cartões</strong>
                     </div>
                     <div style="text-align: right; padding-top: 3px">
