@@ -24,8 +24,13 @@
                     </div>
                 </div><br>
 
-                <div class="destaque-text">
-                    {{ contato.desc|safe }}
+                <div class="row">
+                    <div class="span6">
+                        <img class="img-rounded" src="{{ STATIC_URL }}img/fach-ref.jpg" width="570" height="271" alt="Refritek" title="Refritek">
+                    </div>
+                    <div class="span6 destaque-text">
+                        {{ contato.desc|safe }}
+                    </div>
                 </div>
 
             </div>
